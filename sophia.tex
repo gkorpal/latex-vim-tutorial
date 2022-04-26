@@ -1,0 +1,165 @@
+%%%%%%%%%%%%%%%%%%%
+% Sophia Template %
+%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%
+%%%%% This template contains the following features:
+%
+%%% Enabled by default:
+% 
+%
+%
+%%%%%%%%%%%%%%%%%%%
+
+%%% Document class %%%
+% Any arguments given here will be passed on to all packages that support it.
+% This is useful if multiple packages take the same type of argument.
+% For example, both Babel and BibLaTeX-Chicago take languages as arguments.
+% Thus, the language is specified once here so that it can be passed on to both packages.
+% Options: USenglish, UKenglish, dutch
+\documentclass[UKenglish]{article}
+
+%%% Author name %%%
+\author{Teun van Son}
+
+%%% Title %%%
+\title{\textbf{Title}\\Subtitle}
+
+%%% Date %%%
+% For no date, write \date{}
+\date{\today}
+
+%%% Font %%%
+% Set font encoding to T1
+% Comment to restore to LaTeX default (OT1)
+% If you have no idea what this is, it's best to leave it
+\usepackage[T1]{fontenc}
+
+% I use TeX Gyre Termes because I think it's pretty
+% Comment to restore to LaTeX default (Computer Modern)
+\usepackage{tgtermes}
+
+%%% Paper size %%%
+% Options: a4paper, letterpaper (LaTeX default)
+\usepackage[a4paper]{geometry}
+
+%%% Spacing %%%
+\usepackage{setspace}
+% Options: singlespacing, onehalfspacing, doublespacing
+\singlespacing
+
+%%% Microtype %%%
+% Microtype makes a bunch of small typesetting changes to make your document look better
+% Commented by default to speed up compiling
+% Uncomment to compile the final version of your document
+%\usepackage{microtype}
+
+%%% Booktabs %%%
+% Makes tables simple and pretty
+% Disabled by default, uncomment the line below if your document has tables
+%\usepackage{booktabs}
+
+%%% Babel %%%
+% Sets document language based on the argument passed to the \documentclass variable
+\usepackage{babel}
+
+%%% BibLaTeX %%%
+% Enables BibLaTeX-Chicago in the author-date format, with Biber as backend, and suppressing all doi's and isbn's
+% Biber needs to be installed on your machine for this to work!
+% Change 'authordate' to 'notes' to use footnotes instead
+\usepackage[
+authordate,
+backend=biber,
+doi=false,
+isbn=false]
+{biblatex-chicago}
+% Sets the bibliography source file
+% Takes both absolute and relative paths, so all of the following are valid:
+%	/home/name/Documents/article/sources.bib
+%	sources.bib
+%	../sources/sources.bib
+\addbibresource{filename.bib}
+
+% Enables csquotes, which is recommended for BibLaTeX-Chicago
+\usepackage[autostyle=true]{csquotes}
+
+% Set bibliography font to small
+\renewcommand{\bibfont}{\normalfont\small}
+%\renewcommand{\bibfont}{\normalfont\footnotesize}
+
+%%% References %%%
+% Enables Hyperref, turning references into hyperlinks
+\usepackage{hyperref}
+% Set custom colors for urls, links and citations
+\hypersetup{
+  colorlinks   = true, %Colours links instead of ugly boxes
+  urlcolor     = blue, %Colour for external hyperlinks
+  linkcolor    = red, %Colour of internal links
+  citecolor   = blue %Colour of citations
+}
+
+% Enables the [hypcap=true] option (enabled by default) that lets hyperref refer to the figure itself instead of the caption
+\usepackage{caption}
+
+% Enables Cleveref, which partly automates internal references
+% Instead of 'see paragraph \ref{sec:analysis}', write 'see \cref{sec:analysis}'
+% Cleveref will automatically append the type of thing you're referencing (e.g. paragraph, figure, appendix, etc.)
+\usepackage{cleveref}
+
+%%% Graphics %%%
+% Enables insertion of images
+% Disabled by default, uncomment the two lines below if your document needs images
+%\usepackage{graphicx}
+%\graphicspath{{../Afbeeldingen}}
+
+
+%%% Document body %%%
+\begin{document}
+
+\maketitle
+
+% Puts the title on its own page; recommended for bigger documents such as theses
+% Comment the line below to let the text continue below the title
+\pagebreak
+
+% Writes the table of contents; recommended for bigger documents such as theses
+% Comment the lines below to get rid of the ToC
+{ 
+\hypersetup{linkcolor=black} %To make sure that the links in the table of contents aren't red
+\tableofcontents
+}
+
+\pagebreak
+
+\section{A section}
+This is where the good stuff happens
+
+\subsection{A subsection}
+Also very interesting yes.
+
+\printbibliography
+
+
+%%% Appendix %%%
+% Adds an appendix to the document
+% Comment everything from \pagebreak to \end{refsection} to remove the appendix
+
+\pagebreak
+
+% Enables separate numbering for the appendix
+\pagenumbering{roman}
+
+% Creates a separate section of references for the appendix bibliography
+\begin{refsection}
+
+\appendix
+
+\section{First appendix}
+
+% Prints the appendix bibliography with a smaller heading
+\printbibliography[heading=subbibliography]
+
+\end{refsection}
+
+
+\end{document}
