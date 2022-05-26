@@ -1,0 +1,19 @@
+%%%%%%%%%%%%
+% Preamble %
+%%%%%%%%%%%%
+
+\usepackage{pdfpages}
+
+%%%%%%%%%%%%%
+% Body text %
+%%%%%%%%%%%%%
+
+
+% The file will be automatically be given its own page, no need to do a \pagebreak before or after
+\begin{figure}[h]
+    \centering
+% If you only want to include certain pages from a document, write them in the first set of curly braces
+% Write the filename without extension in the second set of curly brackets
+    \includepdf[pages={-}]{frontpage}
+\end{figure}
+

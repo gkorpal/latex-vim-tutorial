@@ -1,0 +1,28 @@
+%%%%%%%%%%%%
+% Preamble %
+%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%
+% Body text %
+%%%%%%%%%%%%%
+
+% This adds an appendix to the document which is separate from the rest of the document, with a separate bibliography.
+
+\pagebreak
+
+% Enables separate numbering for the appendix
+% Options: arabic, roman, Roman, alph, Alph
+\pagenumbering{roman}
+
+% Creates a separate section of references for the appendix bibliography
+\begin{refsection}
+
+\appendix
+
+\section{First appendix}
+
+% Prints the appendix bibliography with a smaller heading
+\printbibliography[heading=subbibliography]
+
+\end{refsection}

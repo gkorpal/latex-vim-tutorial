@@ -1,0 +1,25 @@
+%%% Preamble %%%
+
+\usepackage{graphicx}
+
+% Define the directory where your images reside
+\graphicspath{{../Afbeeldingen}}
+
+
+%%% Body %%%
+
+% By default, figures appear in the most space-saving spot.
+% You can change this behaviour by specifying an option between brackets after \begin{figure}:
+%	'h' puts them (approximately) where you assign them.
+%	't' puts them at the top.
+%	'b' puts them at the bottom.
+%	'p' puts them on their own page.
+\begin{figure}[h]
+	\begin{center}
+		% You can specify the size of the image by setting 'width=' or 'height='
+		% The size can be set absolutely (in px, cm, etc.), relatively (with 'scale=1.5') or relative to \textwidth, like done below
+		\includegraphics[width=0.8\textwidth]{image.png}
+		\caption{A very beautiful image.}
+		\label{fig:beautiful}
+	\end{center}
+\end{figure}

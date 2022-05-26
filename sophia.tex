@@ -2,14 +2,18 @@
 % Sophia Template %
 %%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%
-% Sophia is a very basic LaTeX template that anyone is completely free to use, modify and distribute.
-% It is mostly intended for philosophy works, but it might be suitable for other disciplines in the humanities and social sciences as well.
+%%%%%%%%%%%%
+% Sophia is a very basic LaTeX template that is completely free to use, modify and distribute.
+% It is intended for works in the humanities and social sciences
 % It has a simple yet classy look and some basic features which should be enough for most papers and theses.
 % This is a template for beginners by a beginner, so don't expect anything too fancy.
 % For suggestions and issues, head over to https://gitlab.com/teunphil/sophia-template
-%%%%%%%%%%
+%%%%%%%%%%%%
 
+
+%%%%%%%%%%%%
+% Preamble %
+%%%%%%%%%%%%
 
 %%% Document class %%%
 % Any arguments given here will be passed on to all packages that support it.
@@ -18,13 +22,10 @@
 % Thus, the language is specified once here so that it can be passed on to both packages.
 % Options: USenglish, UKenglish, dutch
 % Other useful options include:
-%	twocolumn – for two columns of text per page
 %	twoside – for double-sided printing
-%	titlepage – to put the title centered on a separate page
-\documentclass[UKenglish, titlepage]{article}
-%\documentclass[UKenglish, twocolumn]{article}
+\documentclass[UKenglish]{article}
 %%% Author name %%%
-\author{Teun van Son}
+\author{Sophia Q. Smart}
 
 %%% Title %%%
 \title{\textbf{Title}\\Subtitle}
@@ -49,19 +50,13 @@
 
 %%% Spacing %%%
 \usepackage{setspace}
-% Options: singlespacing, onehalfspacing, doublespacing
+% Options: singlespacing (default), onehalfspacing, doublespacing
 \singlespacing
 
 %%% Microtype %%%
 % Microtype makes a bunch of small typesetting changes to make your document look better
-% Commented by default to speed up compiling
-% Uncomment to compile the final version of your document
-%\usepackage{microtype}
-
-%%% Booktabs %%%
-% Makes tables simple and pretty
-% Enabled by default, comment the line below if your document has no tables
-\usepackage{booktabs}
+% Comment to speed up compiling, or to see what the differences are
+\usepackage{microtype}
 
 %%% Babel %%%
 % Sets document language based on the argument passed to the \documentclass variable
@@ -87,7 +82,7 @@ isbn=false]
 % Enables csquotes, which is recommended for BibLaTeX-Chicago
 \usepackage[autostyle=true]{csquotes}
 
-% Set bibliography font to small
+% Set bibliography font to small (or even smaller)
 \renewcommand{\bibfont}{\normalfont\small}
 %\renewcommand{\bibfont}{\normalfont\footnotesize}
 
@@ -102,107 +97,74 @@ isbn=false]
   citecolor   = blue %Colour of citations
 }
 
-% Enables the [hypcap=true] option (enabled by default) that lets hyperref refer to the figure itself instead of the caption
+% The 'caption' package enables the [hypcap=true] option (enabled by default), which lets hyperref refer to the figure itself instead of the caption
 \usepackage{caption}
 
 % Enables Cleveref, which partly automates internal references
 % Instead of 'see paragraph \ref{sec:analysis}', write 'see \cref{sec:analysis}'
-% Cleveref will automatically append the type of thing you're referencing (e.g. paragraph, figure, appendix, etc.)
+% Cleveref will automatically append the type of thing you're referencing (e.g. paragraph, figure, appendix, etc.) and do so in the right language
 \usepackage{cleveref}
 
-%%% Graphics %%%
-% Enables insertion of images
-% Disabled by default, uncomment the two lines below if your document needs images
-%\usepackage{graphicx}
-%\graphicspath{{../Afbeeldingen}}
+% Start a new page before every section
+% Recommended for theses, not for smaller papers (but you do you)
+\let\stdsection\section
+\renewcommand\section{\clearpage\stdsection}
 
 
-%%% Document body %%%
+%%%%%%%%
+% Body %
+%%%%%%%%
+
 \begin{document}
 
+% If the option 'titlepage' is enabled in \documentclass, then this title will automatically get its own page
 \maketitle
 
-% Puts the title on its own page; recommended for bigger documents such as theses
-% Comment the line below to let the text continue below the title
-%\clearpage
-
 %%% Table of Contents %%%
-%{ 
-%\hypersetup{linkcolor=black} %To make sure that the links in the table of contents aren't red
-%\tableofcontents
-%}
-%\pagebreak
+{ 
+\hypersetup{linkcolor=black} %To make sure that the links in the table of contents are black
+\setcounter{tocdepth}{2} % To include only sections (level 1) and subsections (level 2) in the ToC
+\tableofcontents
+}
+\pagebreak
 
 \section{A section}
 This is where the good stuff happens.
+
 
 \subsection{A subsection}
 Also very interesting yes.
 Oh, and here is \href{https://youtu.be/dQw4w9WgXcQ}{a link}!
 
 
-%%% Tables %%%
-\section{Table}
+\subsubsection{A subsubsection}
+Subsubsections exist too, apparently.
 
-% This is a simple example table; feel free to modify it to your needs.
-% Uncomment the four commented lines to put this table in a floating figure.
-\begingroup % A group is created to quarantine the distance parameters set below
-\setlength{\tabcolsep}{9pt} % Default value: 6pt
-\renewcommand{\arraystretch}{1.5} % Default value: 1
-%\begin{figure}
-\begin{tabular}{p{0.45\textwidth} p{0.45\textwidth}} \toprule
-	\textbf{Header 1} & \textbf{Header 2} \\
-	\midrule
-	Some text on the left. & Some more text on the right. \\
-	This is a somewhat longer though not unreasonably long piece of text. & This is short. \\
-	Etc. etc. & You probably get the point by now. \\	
-		\bottomrule
-\end{tabular}
-%\caption{A very simple example table.}
-%\label{fig:table}
-%\end{figure}
-\endgroup
+\paragraph{A paragraph}
+I'm going deeper underground.
 
-%%% Images %%%
+\subparagraph{A subparagraph}
+There's too much panic in this town!
 
-% By default, figures appear in the most space-saving spot.
-% You can change this behaviour by specifying an option between brackets after \begin{figure}:
-%	'h' puts them exactly where you assign them.
-%	't' puts them at the top.
-%	'b' puts them at the bottom.
-%	'p' puts them on their own page.
-% Uncomment the next section to include an image:
-%\begin{figure}[h]
-%	\begin{center}
-%		\includegraphics[width=0.5\textwidth]{image.png}
-%		\caption{A very beautiful image.}
-%		\label{fig:extinctions}
-%	\end{center}
-%\end{figure}
+% To add a sub-header to a section header, simply use \\, change the size and keep typing
+% In order to make header and sub-header appear properly in the ToC, use square brackets and type the header you want to have in the ToC
+\section[Section two: the sectioning]{Section two \\ \large{The sectioning}}
+This is a section with a subtitle for extra \emph{emphasis}.
+\textbf{Bold} stuff!
+As for other formatting, ``A short quote can go between quotation marks'', said the author of this template.
 
+\begin{quote}
+	A longer quote, such as the present one, requires a different approach.
+	Due to the length of this text, it would be preferred to visually separate it from the rest of the text.
+	For that purpose, a block quote is required.
+	And, it should be said, it does the job marvellously!
+\end{quote}
+
+Citing is usually done with \verb|\autocite{tag}| or, to cite in-line, \verb|\textcite{tag}|.
+Unfortunately, these cannot be demonstrated here as they need a .bib file to work.
+
+% The printbibliography command will only work once at least one source has been cited in the document
+% Otherwise, it will throw a warning
 \printbibliography
-
-
-%%% Appendix %%%
-% Adds an appendix to the document
-
-%\pagebreak
-
-% Enables separate numbering for the appendix
-% Options: arabic, roman, Roman, alph, Alph
-%\pagenumbering{roman}
-
-% Creates a separate section of references for the appendix bibliography
-%\begin{refsection}
-
-%\appendix
-
-%\section{First appendix}
-
-% Prints the appendix bibliography with a smaller heading
-%\printbibliography[heading=subbibliography]
-
-%\end{refsection}
-
 
 \end{document}

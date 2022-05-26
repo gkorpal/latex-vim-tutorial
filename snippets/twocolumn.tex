@@ -1,0 +1,46 @@
+%%%%%%%%%%%%
+% Preamble %
+%%%%%%%%%%%%
+
+\documentclass[UKenglish, titlepage, twocolumn]{article}
+
+%%% Margins %%%
+% The default column separation is too small for my taste, so I slightly increase it here
+% Comment the three commands below to revert the margins to their LaTeX defaults
+% If you're curious about what these commands do to the layout exactly, add \addpackage{layout} to the preamble, and \layout to the main text to see a visual representation
+
+% Increase the column separation by 10pt
+\addtolength{\columnsep}{10pt}
+% Compensate by pushing the whole text 5pt left
+\addtolength{\hoffset}{-5pt}
+% Compensate by adding 10pt to the total text width, effectively pushing both columns 5pt outward
+\addtolength{\textwidth}{10pt}
+
+%%%%%%%%%%%%%
+% Body text %
+%%%%%%%%%%%%%
+
+% You don't require anything in your body text, two-column mode will automatically be enabled
+
+%%% Switching modes %%%
+% You can easily switch to single-column mode (for your table of contents, for example)
+\onecolumn
+
+% Switching back to two columns is just as easy
+\twocolumn
+
+
+%%% Full-width figures %%%
+
+% If you want a figure to take up the entire textwidth and not just one column, add a * to the figure command
+% This works for any figure type, whether it's images, tables or text!
+
+\begin{figure*}[h]
+	\begin{center}
+		% You can specify the size of the image by setting 'width=' or 'height='
+		% The size can be set absolutely (in px, cm, etc.), relatively (with 'scale=1.5') or relative to \textwidth, like done below
+		\includegraphics[width=0.8\textwidth]{image.png}
+		\caption{A very beautiful image.}
+		\label{fig:beautiful}
+	\end{center}
+\end{figure*}
