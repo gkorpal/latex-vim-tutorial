@@ -3,14 +3,17 @@
 ## Contents
 
 √ A simple (n)vim config
+
 √ A small collection of useful (n)vim plugins
+
 √ A basic LaTeX template to get started
+
 √ Snippets for specific purposes
 
 ## Setting up (n)vim
 
 I configure both vim and neovim in vimscript, because I share a single config file between the two editors.
-Both editors require little extra config for comfy LaTeX editing, so the settings here are quire vanilla.
+Both editors require little extra config for comfy LaTeX editing, so the settings here are quite vanilla.
 
 The following options are relevant to both vim and neovim:
 
@@ -68,7 +71,9 @@ Plug 'rafi/awesome-vim-colorschemes'	" color schemes
 You can (and should) read more about how vim-plug works on the GitHub page, but the basic operations are:
 
 `PlugInstall`	Install any new plugins from the config
+
 `PlugUpdate`	Update all plugins
+
 `PlugUpgrade`	Upgrade vim-plug itself
 
 ### [VimTeX](https://github.com/lervag/vimtex)
@@ -82,6 +87,8 @@ let g:vimtex_view_method = 'zathura'	" set VimTeX default pdf viewer
 let g:vimtex_fold_enabled = 1 		" enable VimTeX folding
 let g:vimtex_fold_manual = 1		" set VimTeX folding to manual
 ```
+
+Now to some of its best features.
 
 #### Auto-compilation
 Perhaps the most convenient feature is auto-compilation.
@@ -97,12 +104,15 @@ Hit `\lt` to toggle a table of contents.
 
 #### Folding
 `za`	toggle current fold
+
 `zA`	toggle current fold + all underlying folds
+
 `zR`	open all folds (Reduce)
+
 `zM`	close all folds	(More)
 
 #### Moving between sections
-use `]]` and `[[` to quickly jump between sections.
+Use `]]` and `[[` to quickly jump between sections.
 
 ### [Limelight](https://github.com/junegunn/limelight.vim) and [Goyo](https://github.com/junegunn/goyo.vim)
 These two plugins combined add a pleasant distraction-free writing mode.
