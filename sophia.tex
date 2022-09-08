@@ -51,7 +51,7 @@
 %%% Spacing %%%
 \usepackage{setspace}
 % Options: singlespacing (default), onehalfspacing, doublespacing
-\singlespacing
+\onehalfspacing
 
 %%% Microtype %%%
 % Microtype makes a bunch of small typesetting changes to make your document look better
@@ -105,10 +105,8 @@ isbn=false]
 % Cleveref will automatically append the type of thing you're referencing (e.g. paragraph, figure, appendix, etc.) and do so in the right language
 \usepackage{cleveref}
 
-% Start a new page before every section
-% Recommended for theses, not for smaller papers (but you do you)
-\let\stdsection\section
-\renewcommand\section{\clearpage\stdsection}
+% Enables comment blocks
+\usepackage{comment}
 
 
 %%%%%%%%
@@ -117,16 +115,13 @@ isbn=false]
 
 \begin{document}
 
-% If the option 'titlepage' is enabled in \documentclass, then this title will automatically get its own page
 \maketitle
 
-%%% Table of Contents %%%
-{ 
-\hypersetup{linkcolor=black} %To make sure that the links in the table of contents are black
-\setcounter{tocdepth}{2} % To include only sections (level 1) and subsections (level 2) in the ToC
-\tableofcontents
-}
-\pagebreak
+\begin{abstract}
+
+\end{abstract}
+
+\textit{\textbf{\small Keywords --- }\small first, second, third, etc.}
 
 \section{A section}
 This is where the good stuff happens.

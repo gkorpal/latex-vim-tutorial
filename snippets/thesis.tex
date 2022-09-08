@@ -1,0 +1,33 @@
+%%%%%%%%%%
+% Thesis %
+%%%%%%%%%%
+
+% This snippet contains a few options for larger documents
+
+
+%%% Preamble %%%
+
+% Automatic new page before every section
+\let\stdsection\section
+\renewcommand\section{\clearpage\stdsection}
+
+
+%%% Body %%%
+
+% Title page
+% The titlepage environment puts the title on its own page while allowing you to add other stuff to it
+% Another method is to add the option 'titlepage' to \documentclass, but that will put only \maketitle on the titlepage, and nothing else
+\begin{titlepage}
+	\maketitle
+
+	% [Anything else you want to have on your titlepage]
+\end{titlepage}
+
+
+% Table of contents
+{ 
+\hypersetup{linkcolor=black} %To make sure that the links in the table of contents are black
+\setcounter{tocdepth}{2} % To include only sections (level 1) and subsections (level 2) in the ToC
+\tableofcontents
+}
+\pagebreak
