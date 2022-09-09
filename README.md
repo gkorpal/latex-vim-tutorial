@@ -6,9 +6,15 @@
 
 √ A small collection of useful (n)vim plugins
 
+√ Some (n)vim tips & tricks
+
 √ A collection of useful LaTeX packages
 
-√ A basic LaTeX template to get started
+√ Some LaTeX tips & tricks
+
+## Attachments
+
+√ A basic LaTeX template called `sophia.tex`
 
 √ Snippets for specific purposes
 
@@ -130,6 +136,8 @@ noremap <leader>gg :Goyo<CR>|	 " hotkey for Goyo toggle
 This way, `\gg` toggles Goyo and Limelight together.
 
 ### [Autolist](https://github.com/gaoDean/autolist.nvim)
+**→ This is the only plugin here that requires nvim!**
+
 Automatically continues lists, so you don't have to type `\item` over and over and over.
 
 The only config required is:
