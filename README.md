@@ -12,7 +12,7 @@
 
 √ Snippets for specific purposes
 
-## Setting up (n)vim
+## (n)vim config
 
 I configure both vim and neovim in vimscript, because I share a single config file between the two editors.
 Both editors require little extra config for comfy LaTeX editing, so the settings here are quite vanilla.
@@ -137,6 +137,52 @@ The only config required is:
 ```
 :lua require('autolist').setup({})
 ```
+
+## (n)vim tips & tricks
+
+### spellcheck
+
+To enable basic spellchecking, install `hunspell` + all relevant Hunspell dictionaries to your system, and add the following to your config:
+
+```
+map <F6> :setlocal spell! spelllang=en_UK<CR>|	" toggle UK_EN spellcheck
+map <F7> :setlocal spell! spelllang=nl_NL<CR>|	" toggle NL spellcheck
+```
+
+This will give you a hotkey for every language.
+(Vim is smart enough to detect and use Hunspell's dictionaries automatically.)
+
+### snippets
+
+Personally, I don't find myself using snippets all that much.
+There's something satisfying to typing out commands and environments on muscle memory, and I feel that snippets intrude on my muscle memory more than that they actually enhance the writing experience.
+
+Still, for those that are interested, there's roughly two ways to use snippets: the lazy way and the manual way.
+
+#### UltiSnips
+The lazy way is to use a plugin like [UltiSnips](https://github.com/SirVer/ultisnips).
+You can get started by adding the following to your config
+
+```
+let g:UltiSnipsSnippetDirectories  = ['/.vim/UltiSnips']	" set UltiSnips directory
+let g:UltiSnipsExpandTrigger       = '<Tab>'    		" use Tab to expand snippets
+let g:UltiSnipsJumpForwardTrigger  = '<Tab>'    		" use Tab to move forward through tabstops
+let g:UltiSnipsJumpBackwardTrigger = '<S-Tab>'  		" use Shift-Tab to move backward through tabstops
+```
+
+and using [this](https://github.com/honza/vim-snippets/blob/master/UltiSnips/tex.snippets) snippets file.
+
+#### Manually
+The manual way I learned from [Max Cantor](https://youtu.be/XA2WjJbmmoM?t=2303), and it looks like this:
+
+```
+nnoremap ,image :-1read $HOME/Documents/LaTeX\ Practice/templates/sophia/snippets/image.tex<CR>d/%%% Body %%%<CR>d2d/image.png<CR>gnc
+nnoremap ,table :-1read $HOME/Documents/LaTeX\ Practice/templates/sophia/snippets/table.tex<CR>d/%%% Body %%%<CR>d2d/midrule<CR>j0c3c
+```
+
+To understand how this crazy-looking mapping works, do check out his video.
+But basically, the string after `nnoremap` is what you type in normal mode to trigger the snippet, the string after `:-1read` is the path to the file you want to throw in your document, and the stuff after `<CR>` are the keystrokes you want to be pressed after the snippet is pasted.
+Pretty simple!
 
 ## LaTeX packages
 
