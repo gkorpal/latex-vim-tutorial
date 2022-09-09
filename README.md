@@ -198,7 +198,7 @@ isbn=false]
 
 Here, I tell it to use the author-date style, to use Biber as its back-end, and to leave out any DOI's and ISBN's in the bibliography.
 Then, I point the package to my `.bib` file, which can be produced with a reference manager like [Zotero](https://www.zotero.org/).
-And lastly, I enable csquotes, which is recommended by BibLaTeX:
+And lastly, I enable csquotes, which is recommended by BibLaTeX.
 
 ### hyperref
 
@@ -298,12 +298,14 @@ If you simply plop down your table of contents, you might have a number of probl
 
 Let's solve all these problems at once:
 
+```
 { 
 \onehalfspacing
 \hypersetup{linkcolor=black} %To make the links in the ToC black instead of red
 \setcounter{tocdepth}{2} % To include only sections (level 1) and subsections (level 2) in the ToC
 \tableofcontents
 }
+```
 
 ### abstract and keywords
 
