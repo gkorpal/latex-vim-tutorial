@@ -7,8 +7,9 @@ I do this both in the form of a 'tutorial' (scroll down) and a template + snippe
 
 → **NOTE**: if you're completely new to LaTeX, this is probably not the place to start.
 You can get acquainted with LaTeX through [Overleaf's 30-minute introduction](https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes).
+Check out [LaTeX-doc-ptr](https://mirrors.evoluso.com/CTAN/info/latex-doc-ptr/latex-doc-ptr.pdf) for a great list of general recommendations.
 
-![Example of an nvim LaTeX workflow](https://gitlab.com/teunphil/humanlatex/-/raw/main/example.gif)*What my current nvim+LaTeX workflow looks like*
+![Example of an nvim LaTeX workflow](https://gitlab.com/teunphil/humanlatex/-/raw/main/example.gif)*What a simple nvim+LaTeX workflow could look like*
 
 ## Contents
 
