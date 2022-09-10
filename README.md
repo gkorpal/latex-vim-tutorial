@@ -12,23 +12,23 @@ You can get acquainted with LaTeX through [Overleaf's 30-minute introduction](ht
 
 ## Contents
 
-√ A simple [(n)vim config](#nvim-config)
+1. A simple [(n)vim config](#1-nvim-config)
 
-√ A small collection of useful (n)vim plugins
+2. A small collection of [useful (n)vim plugins](#2-nvim-plugins)
 
-√ Some (n)vim tips & tricks
+3. Some [(n)vim tips & tricks](#3-nvim-tips-tricks)
 
-√ A collection of useful LaTeX packages
+4. A collection of [useful LaTeX packages](#4-latex-packages)
 
-√ Some LaTeX tips & tricks
+5. Some [LaTeX tips & tricks](#5-latex-tips-tricks)
 
 ## Attachments
 
-√ A basic LaTeX template called [sophia.tex](sophia.tex)
+- A basic LaTeX template called [sophia.tex](sophia.tex)
 
-√ [Snippets](snippets) for specific purposes
+- [Snippets](snippets) for specific purposes
 
-## (n)vim config
+## 1. (n)vim config
 
 I configure both vim and neovim in vimscript, because I share a single config file between the two editors.
 Both editors require little extra config for comfy LaTeX editing, so the settings here are quite vanilla.
@@ -62,7 +62,7 @@ syntax on			" enable syntax highlighting
 
 ```
 
-## (n)vim plugins
+## 2. (n)vim plugins
 
 ### [vim-plug](https://github.com/junegunn/vim-plug)
 You can manage your plugins [manually](https://gist.github.com/manasthakur/ab4cf8d32a28ea38271ac0d07373bb53#managing-plugins-natively-using-vim-8-packages), but for me, there's little reason not to use vim-plug.
@@ -156,9 +156,9 @@ The only config required is:
 :lua require('autolist').setup({})
 ```
 
-## (n)vim tips & tricks
+## 3. (n)vim tips & tricks
 
-### spellcheck
+### Spellcheck
 
 To enable basic spellchecking, install `hunspell` + all relevant Hunspell dictionaries to your system.
 I added the following to my config:
@@ -171,7 +171,7 @@ map <F7> :setlocal spell! spelllang=nl_NL<CR>|	" toggle NL spellcheck
 This will give you a hotkey for every language.
 (Vim is smart enough to detect and use Hunspell's dictionaries automatically.)
 
-### snippets
+### Snippets
 
 Personally, I don't find myself using snippets all that much.
 There's something satisfying to typing out commands and environments on muscle memory, and I feel that snippets intrude on my muscle memory more than that they actually enhance the writing experience.
@@ -201,7 +201,7 @@ To understand how this crazy-looking mapping works, do check out his video.
 But basically, the string after `nnoremap` is what you type in normal mode to trigger the snippet, the string after `:-1read` is the path to the file you want to throw in your document, and the stuff after `<CR>` are the keystrokes you want to be pressed after the snippet is pasted.
 Pretty simple!
 
-## LaTeX packages
+## 4. LaTeX packages
 
 ### fontenc
 
@@ -349,7 +349,7 @@ Bonus: it works perfectly with VimTeX, which will ignore any commented blocks wh
 \usepackage{comment}
 ```
 
-## LaTeX tips & tricks
+## 5. LaTeX tips & tricks
 
 ### a properly formatted table of contents
 
