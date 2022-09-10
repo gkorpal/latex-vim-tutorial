@@ -1,15 +1,15 @@
-# HumanLaTeX: a (n)vim setup for LaTeX for the humanities.
+# HumanLaTeX: a (n)vim+LaTeX setup for the humanities.
 
 This is for all those LaTeX users in the humanities just trying to figure stuff out.
 I am one of them.
 Here I share what I've learned.
 I do this both in the form of a 'tutorial' (scroll down) and a template + snippets (see above).
 
-→ **NOTE**: if you're completely new to LaTeX, this is probably not the place to start.
+→ **NOTE:** if you're completely new to LaTeX, this is probably not the place to start.
 You can get acquainted with LaTeX through [Overleaf's 30-minute introduction](https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes).
 Check out [LaTeX-doc-ptr](https://mirrors.evoluso.com/CTAN/info/latex-doc-ptr/latex-doc-ptr.pdf) for a great list of general recommendations.
 
-![Example of an nvim LaTeX workflow](https://gitlab.com/teunphil/humanlatex/-/raw/main/example.gif)*What a simple nvim+LaTeX workflow could look like*
+![Example of an neovim+LaTeX workflow](https://gitlab.com/teunphil/humanlatex/-/raw/main/example.gif)*What a simple neovim+LaTeX workflow could look like.*
 
 ## Contents
 
@@ -147,7 +147,7 @@ noremap <leader>gg :Goyo<CR>|	 " hotkey for Goyo toggle
 This way, `\gg` toggles Goyo and Limelight together.
 
 ### [Autolist](https://github.com/gaoDean/autolist.nvim)
-**→ This is the only plugin here that requires nvim!**
+→ **NOTE:** This is the only plugin here that requires neovim!
 
 Automatically continues lists, so you don't have to type `\item` over and over and over.
 
@@ -234,7 +234,9 @@ This way, any other packages that take a language as an argument also know that 
 
 BibLaTeX manages your references and bibliographies.
 This particular flavour does so in the [Chicago](https://www.chicagomanualofstyle.org/tools_citationguide.html) style, a popular style in the humanities and social sciences.
-If you require a different citation style, check out the resources to see whether you should use plain `biblatex`, or a custom version of it.
+
+→ **NOTE:**If you require a different citation style, you should do some research to see whether you should use plain `biblatex` or a custom version of it.
+It seems that for MLA you can use `[biblatex-mla](https://ctan.org/pkg/biblatex-mla)`, and for APA there is `[biblatex-apa](https://ctan.org/pkg/biblatex-apa)` (both are updated in 2022), but please do some [Ducking](https://duckduckgo.com/) before sticking to a method.
 
 In any case, I invoke biblatex-chicago as follows (this should work with any biblatex package):
 
