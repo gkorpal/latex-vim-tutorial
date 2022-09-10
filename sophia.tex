@@ -92,7 +92,7 @@ isbn=false]
 \usepackage{hyperref}
 % Set custom colors for urls, links and citations
 \hypersetup{
-  colorlinks   = true, %Colours links instead of ugly boxes
+  colorlinks   = true, %Colours links instead of ugly boxes:
   urlcolor     = blue, %Colour for external hyperlinks
   linkcolor    = red, %Colour of internal links
   citecolor   = blue %Colour of citations
@@ -105,6 +105,9 @@ isbn=false]
 % Instead of 'see paragraph \ref{sec:analysis}', write 'see \cref{sec:analysis}'
 % Cleveref will automatically append the type of thing you're referencing (e.g. paragraph, figure, appendix, etc.) and do so in the right language
 \usepackage{cleveref}
+
+% Enables line breaks in URLs and file paths
+\usepackage{url}
 
 % Enables comment blocks
 \usepackage{comment}

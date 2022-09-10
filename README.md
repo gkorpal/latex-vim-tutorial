@@ -267,7 +267,7 @@ And lastly, I enable csquotes, which is recommended by BibLaTeX.
 
 Hyperref enables hyperlinks in your documents.
 
-```
+```latex
 \usepackage{hyperref}
 % Set custom colors for urls, links and citations
 \hypersetup{
@@ -294,6 +294,73 @@ In particular, Cleveref 'knows' what kind of thing you're referring to (a figure
 % Instead of 'see paragraph \ref{sec:analysis}', write 'see \cref{sec:analysis}'
 % Cleveref will automatically append the type of thing you're referencing (e.g. paragraph, figure, appendix, etc.) and do so in the right language
 \usepackage{cleveref}
+```
+
+### booktabs
+
+Booktabs makes it easy to create pretty and clear tables.
+Specifically, the package follows [a set of rules](https://ftp.snt.utwente.nl/pub/software/tex/macros/latex/contrib/booktabs/booktabs.pdf) for making what they consider 'good tables'.
+I agree with them, so I use it.
+
+```latex
+%%%%%%%%%%%%
+% Preamble %
+%%%%%%%%%%%%
+% Making tables in LaTeX can be done without any extra packages
+% However, booktabs makes tables simple and pretty
+\usepackage{booktabs}
+
+%%%%%%%%%%%%%
+% Body text %
+%%%%%%%%%%%%%
+% This is a simple example table; feel free to modify it to your needs.
+% By default, this table is put in a floating figure.
+% (For more info on figures, see the `image' snippet)
+% To put this table in-line instead, comment the lines \begin{figure}, \caption, \label and \end{figure}
+\begingroup % A group is created to quarantine the distance parameters set below
+% The two lines below increase the distance between columns (\tabcolsep) and between rows (\arraystretch).
+\setlength{\tabcolsep}{9pt} % Default LaTeX value: 6pt – Default Sophia value: 9pt
+\renewcommand{\arraystretch}{1.5} % Default LaTeX value: 1 – Default Sophia value: 1.5
+\begin{figure}
+% This table has two paragraphs that wrap their text automatically (hence the p's).
+% Besides 'p', other options include c (center), l (left align) and r (right align).
+\begin{tabular}{p{0.45\textwidth} p{0.45\textwidth}} \toprule
+	\textbf{Header 1} & \textbf{Header 2} \\
+	\midrule
+	Some text on the left. & Some more text on the right. \\
+	This is a somewhat longer though not unreasonably long piece of text. & This is short. \\
+	Etc. etc. & You probably get the point by now. \\
+		\bottomrule
+\end{tabular}
+\caption{A very simple example table.}
+\label{fig:table}
+\end{figure}
+\endgroup
+```
+
+### pdfpages
+
+pdfpages lets you include (parts of) a PDF file in your document.
+
+```
+%%%%%%%%%%%%
+% Preamble %
+%%%%%%%%%%%%
+
+\usepackage{pdfpages}
+
+%%%%%%%%%%%%%
+% Body text %
+%%%%%%%%%%%%%
+
+
+% The file will be automatically be given its own page, no need to do a \pagebreak before or after
+\begin{figure}[h]
+    \centering
+% If you only want to include certain pages from a document, write them in the first set of curly braces
+% Write the filename without extension in the second set of curly brackets
+    \includepdf[pages={-}]{frontpage}
+\end{figure}
 ```
 
 ### microtype
