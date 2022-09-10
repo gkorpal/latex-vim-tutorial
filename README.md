@@ -1,8 +1,18 @@
 # HumanLaTeX: a (n)vim setup for LaTeX for the humanities.
 
+This is for all those LaTeX users in the humanities just trying to figure stuff out.
+I am one of them.
+Here I share what I've learned.
+I do this both in the form of a 'tutorial' (scroll down) and a template + snippets (see above).
+
+→ **NOTE**: if you're completely new to LaTeX, this is probably not the place to start.
+You can get acquainted with LaTeX through [Overleaf's 30-minute introduction](https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes).
+
+![Example of an nvim LaTeX workflow](https://gitlab.com/teunphil/humanlatex/-/raw/main/example.png)*What my current nvim+LaTeX workflow looks like*
+
 ## Contents
 
-√ A simple (n)vim config
+√ A simple [(n)vim config](#nvim-config)
 
 √ A small collection of useful (n)vim plugins
 
@@ -14,9 +24,9 @@
 
 ## Attachments
 
-√ A basic LaTeX template called `sophia.tex`
+√ A basic LaTeX template called [sophia.tex](sophia.tex)
 
-√ Snippets for specific purposes
+√ [Snippets](snippets) for specific purposes
 
 ## (n)vim config
 
@@ -150,7 +160,8 @@ The only config required is:
 
 ### spellcheck
 
-To enable basic spellchecking, install `hunspell` + all relevant Hunspell dictionaries to your system, and add the following to your config:
+To enable basic spellchecking, install `hunspell` + all relevant Hunspell dictionaries to your system.
+I added the following to my config:
 
 ```
 map <F6> :setlocal spell! spelllang=en_UK<CR>|	" toggle UK_EN spellcheck
@@ -167,8 +178,7 @@ There's something satisfying to typing out commands and environments on muscle m
 
 Still, for those that are interested, there's roughly two ways to use snippets: the lazy way and the manual way.
 
-#### UltiSnips
-The lazy way is to use a plugin like [UltiSnips](https://github.com/SirVer/ultisnips).
+**The lazy way** is to use a plugin like [UltiSnips](https://github.com/SirVer/ultisnips).
 You can get started by adding the following to your config
 
 ```
@@ -180,8 +190,7 @@ let g:UltiSnipsJumpBackwardTrigger = '<S-Tab>'  		" use Shift-Tab to move backwa
 
 and using [this](https://github.com/honza/vim-snippets/blob/master/UltiSnips/tex.snippets) snippets file.
 
-#### Manually
-The manual way I learned from [Max Cantor](https://youtu.be/XA2WjJbmmoM?t=2303), and it looks like this:
+**The manual way** I learned from [Max Cantor](https://youtu.be/XA2WjJbmmoM?t=2303), and it looks like this:
 
 ```
 nnoremap ,image :-1read $HOME/Documents/LaTeX\ Practice/templates/sophia/snippets/image.tex<CR>d/%%% Body %%%<CR>d2d/image.png<CR>gnc
