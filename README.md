@@ -1,6 +1,6 @@
-# HumanLaTeX: a (n)vim+LaTeX setup for the humanities.
+# HumanLaTeX: a (n)vim+LaTeX setup for the humanities and social sciences.
 
-This is for all those LaTeX users in the humanities just trying to figure stuff out.
+This is for all those LaTeX users in the humanities and social sciences just trying to figure stuff out.
 I am one of them.
 Here I share what I've learned.
 I do this both in the form of a 'tutorial' (scroll down) and a template + snippets (see above).
