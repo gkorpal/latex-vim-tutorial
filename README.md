@@ -35,7 +35,7 @@ Both editors require little extra config for comfy LaTeX editing, so the setting
 
 The following options are relevant to both vim and neovim:
 
-```
+```vim
 set number			" show number line
 set ignorecase			" ignore case when searching
 set smartcase			" ignore case only with lowercase letters
@@ -50,7 +50,7 @@ autocmd InsertEnter * set nocul
 
 The following options are relevant only to vim (since neovim already sets these by default):
 
-```
+```vim
 set autoindent			" enable auto-indentation
 set hlsearch			" enable search result highlighting
 set backspace=indent,eol,start	" allow backspacing over everything in insert mode.
@@ -71,7 +71,7 @@ Install it by following the instructions on the GitHub page.
 
 Then, add the following to your (n)vim config:
 
-```
+```vim
 call plug#begin()	
 
 call plug#end()
@@ -81,7 +81,7 @@ In between these two lines, you can now start adding your plugins line-by-line.
 You do this by starting a line with `Plug`, and then referring to the author name and plugin name on GitHub.
 For example, if you want to add [Awesome Vim Color Schemes](https://github.com/rafi/awesome-vim-colorschemes), simply add the line
 
-```
+```vim
 Plug 'rafi/awesome-vim-colorschemes'	" color schemes
 
 ```
@@ -100,7 +100,7 @@ If you're going to install just one LaTeX-related plugin, make it this one.
 VimTeX is a very complete filetype plugin for LaTeX files.
 It has many config options, but I have only set these three:
 
-```
+```vim
 let g:vimtex_view_method = 'zathura'	" set VimTeX default pdf viewer
 let g:vimtex_fold_enabled = 1 		" enable VimTeX folding
 let g:vimtex_fold_manual = 1		" set VimTeX folding to manual
@@ -136,7 +136,7 @@ Use `]]` and `[[` to quickly jump between sections.
 These two plugins combined add a pleasant distraction-free writing mode.
 I have them set up as follows:
 
-```
+```vim
 autocmd! User GoyoEnter Limelight	" Limelight + Goyo integration
 autocmd! User GoyoLeave Limelight!
 
@@ -152,7 +152,7 @@ Automatically continues lists, so you don't have to type `\item` over and over a
 
 The only config required is:
 
-```
+```vim
 :lua require('autolist').setup({})
 ```
 
@@ -163,7 +163,7 @@ The only config required is:
 To enable basic spellchecking, install `hunspell` + all relevant Hunspell dictionaries to your system.
 I added the following to my config:
 
-```
+```vim
 map <F6> :setlocal spell! spelllang=en_UK<CR>|	" toggle UK_EN spellcheck
 map <F7> :setlocal spell! spelllang=nl_NL<CR>|	" toggle NL spellcheck
 ```
@@ -181,7 +181,7 @@ Still, for those that are interested, there's roughly two ways to use snippets: 
 **The lazy way** is to use a plugin like [UltiSnips](https://github.com/SirVer/ultisnips).
 You can get started by adding the following to your config
 
-```
+```vim
 let g:UltiSnipsSnippetDirectories  = ['/.vim/UltiSnips']	" set UltiSnips directory
 let g:UltiSnipsExpandTrigger       = '<Tab>'    		" use Tab to expand snippets
 let g:UltiSnipsJumpForwardTrigger  = '<Tab>'    		" use Tab to move forward through tabstops
@@ -192,7 +192,7 @@ and using [this](https://github.com/honza/vim-snippets/blob/master/UltiSnips/tex
 
 **The manual way** I learned from [Max Cantor](https://youtu.be/XA2WjJbmmoM?t=2303), and it looks like this:
 
-```
+```vim
 nnoremap ,image :-1read $HOME/Documents/LaTeX\ Practice/templates/sophia/snippets/image.tex<CR>d/%%% Body %%%<CR>d2d/image.png<CR>gnc
 nnoremap ,table :-1read $HOME/Documents/LaTeX\ Practice/templates/sophia/snippets/table.tex<CR>d/%%% Body %%%<CR>d2d/midrule<CR>j0c3c
 ```
@@ -205,7 +205,7 @@ Pretty simple!
 
 ### fontenc
 
-```
+```latex
 % Set font encoding to T1
 % Comment to restore to LaTeX default (OT1)
 % If you have no idea what this is, it's best to leave it
@@ -220,7 +220,7 @@ You can read more about it [here](https://tex.stackexchange.com/questions/664/wh
 If you're not writing in American English, Babel takes care of pretty much all language-related settings for you.
 You can give it the language directly by invoking `\usepackage[dutch]{babel}`, but I prefer doing it as follows:
 
-```
+```latex
 \documentclass[dutch]{article}
 
 % Sets document language based on the argument passed to the \documentclass variable
@@ -237,7 +237,7 @@ If you require a different citation style, check out the resources to see whethe
 
 In any case, I invoke biblatex-chicago as follows (this should work with any biblatex package):
 
-```
+```latex
 % Enables BibLaTeX-Chicago in the author-date format, with Biber as backend, and suppressing all doi's and isbn's
 % Biber needs to be installed on your machine for this to work!
 % Change 'authordate' to 'notes' to use footnotes instead
@@ -289,7 +289,7 @@ The `caption` package only fixes an issue where clicking a link to a figure jump
 Cleveref is a way to make internal references a bit easier.
 In particular, Cleveref 'knows' what kind of thing you're referring to (a figure, a section, a page), so that it's easier to fit internal references into a sentence.
 
-```
+```latex
 % Enables Cleveref, which partly automates internal references
 % Instead of 'see paragraph \ref{sec:analysis}', write 'see \cref{sec:analysis}'
 % Cleveref will automatically append the type of thing you're referencing (e.g. paragraph, figure, appendix, etc.) and do so in the right language
@@ -342,7 +342,7 @@ I agree with them, so I use it.
 
 pdfpages lets you include (parts of) a PDF file in your document.
 
-```
+```latex
 %%%%%%%%%%%%
 % Preamble %
 %%%%%%%%%%%%
@@ -368,7 +368,7 @@ pdfpages lets you include (parts of) a PDF file in your document.
 Microtype makes a bunch of small typesetting changes that make a small but perceptible difference in how your document looks.
 It is designed to work its magic out-of-the-box, and newbies (like me) are best off leaving it on its default behaviour.
 
-```
+```latex
 % Microtype makes a bunch of small typesetting changes to make your document look better
 % Comment to speed up compiling, or to see what the differences are
 \usepackage{microtype}
@@ -379,7 +379,7 @@ It is designed to work its magic out-of-the-box, and newbies (like me) are best 
 Fonts are very subjective, but I like Tex Gyre Termes.
 If you don't, look for other fonts [here](https://tug.org/FontCatalogue/seriffonts.html) (or hell, just leave it on the default, Computer Modern).
 
-```
+```latex
 % I use TeX Gyre Termes because I think it's pretty
 % Comment to restore to LaTeX default (Computer Modern)
 \usepackage{tgtermes}
@@ -390,7 +390,7 @@ If you don't, look for other fonts [here](https://tug.org/FontCatalogue/seriffon
 Set the dimensions of your paper.
 I personally don't know what 'letter paper' even is, so I set mine to A4.
 
-```
+```latex
 % Options: a4paper, letterpaper (LaTeX default)
 \usepackage[a4paper]{geometry}
 ```
@@ -400,7 +400,7 @@ I personally don't know what 'letter paper' even is, so I set mine to A4.
 We all know that double spacing looks terrible, but sometimes an assignment requires you to use it.
 Setspace has you covered.
 
-```
+```latex
 \usepackage{setspace}
 % Options: singlespacing (default), onehalfspacing, doublespacing
 \onehalfspacing
@@ -411,7 +411,7 @@ Setspace has you covered.
 This is just a convenience package, allowing you to comment out large portions of text with the `comment` environment.
 Bonus: it works perfectly with VimTeX, which will ignore any commented blocks when counting words!
 
-```
+```latex
 % Enables comment blocks
 \usepackage{comment}
 ```
@@ -428,7 +428,7 @@ If you simply plop down your table of contents, you might have a number of probl
 
 Let's solve all these problems at once:
 
-```
+```latex
 { 
 \onehalfspacing
 \hypersetup{linkcolor=black} %To make the links in the ToC black instead of red
@@ -442,7 +442,7 @@ Let's solve all these problems at once:
 LaTeX has a separate environment for abstracts, creatively named `abstract`.
 Keywords can be formatted manually.
 
-```
+```latex
 \begin{abstract}
 
 \end{abstract}
@@ -454,7 +454,7 @@ Keywords can be formatted manually.
 
 Make a subtitle by making the title bold and adding a line break.
 
-```
+```latex
 \title{\textbf{Title}\\Subtitle}
 ```
 
@@ -464,6 +464,6 @@ If you want to use the above trick with section headers, you run into the proble
 The solution is to provide a separate ToC header in square brackets.
 For example:
 
-```
+```latex
 \section[Instrumental reason: Horkheimer's \textit{Eclipse of Reason}]{Instrumental reason\\ {\large Horkheimer's \textit{Eclipse of Reason}}}
 ```
