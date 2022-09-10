@@ -6,8 +6,7 @@ Here I share what I've learned.
 I do this both in the form of a 'tutorial' (scroll down) and a template + snippets (see above).
 
 → **NOTE:** if you're completely new to LaTeX, this is probably not the place to start.
-You can get acquainted with LaTeX through [Overleaf's 30-minute introduction](https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes).
-Check out [LaTeX-doc-ptr](https://mirrors.evoluso.com/CTAN/info/latex-doc-ptr/latex-doc-ptr.pdf) for a great list of general recommendations.
+You can get acquainted with LaTeX through [Overleaf's 30-minute introduction](https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes), and check out [LaTeX-doc-ptr](https://mirrors.evoluso.com/CTAN/info/latex-doc-ptr/latex-doc-ptr.pdf) for a great list of general recommendations.
 
 ![Example of an neovim+LaTeX workflow](https://gitlab.com/teunphil/humanlatex/-/raw/main/example.gif)*What a simple neovim+LaTeX workflow could look like.*
 
@@ -35,6 +34,7 @@ I configure both vim and neovim in vimscript, because I share a single config fi
 Both editors require little extra config for comfy LaTeX editing, so the settings here are quite vanilla.
 
 The following options are relevant to both vim and neovim:
+(I apologise on behalf of Gitlab's vim syntax highlighting.)
 
 ```vim
 set number			" show number line
@@ -112,8 +112,9 @@ Now to some of its best features.
 #### Auto-compilation
 Perhaps the most convenient feature is auto-compilation.
 To enable it, simply open a LaTeX document and hit `\ll`.
-(`\` is the default 'leader key' on (n)vim, which is meant to prevent custom keybindings from plugins or users themselves to interfere with existing keybindings.
-This is why a lot of plugins have keybindings that start with `\`.)
+
+→ *Sidenote:* `\` is the default 'leader key' on (n)vim, which is meant to prevent custom keybindings from plugins or users to interfere with existing keybindings.
+This is why a lot of plugins have keybindings that start with `\`.
 
 #### Forward search
 Hit `\lv` in a LaTeX document to jump to the corresponding place in the pdf.
@@ -235,10 +236,10 @@ This way, any other packages that take a language as an argument also know that 
 BibLaTeX manages your references and bibliographies.
 This particular flavour does so in the [Chicago](https://www.chicagomanualofstyle.org/tools_citationguide.html) style, a popular style in the humanities and social sciences.
 
-→ **NOTE:**If you require a different citation style, you should do some research to see whether you should use plain `biblatex` or a custom version of it.
-It seems that for MLA you can use `[biblatex-mla](https://ctan.org/pkg/biblatex-mla)`, and for APA there is `[biblatex-apa](https://ctan.org/pkg/biblatex-apa)` (both are updated in 2022), but please do some [Ducking](https://duckduckgo.com/) before sticking to a method.
+→ **NOTE:** If you require a different citation style, you should do some research to see whether you should use plain `biblatex` or a custom version of it.
+It seems that for MLA you can use [biblatex-mla](https://ctan.org/pkg/biblatex-mla), and for APA there is [biblatex-apa](https://ctan.org/pkg/biblatex-apa) (both have been updated in 2022), but please do some [Ducking](https://duckduckgo.com/) before sticking to a method.
 
-In any case, I invoke biblatex-chicago as follows (this should work with any biblatex package):
+In any case, I invoke `biblatex-chicago` as follows (this should work with any biblatex package):
 
 ```latex
 % Enables BibLaTeX-Chicago in the author-date format, with Biber as backend, and suppressing all doi's and isbn's
@@ -309,6 +310,7 @@ I agree with them, so I use it.
 %%%%%%%%%%%%
 % Preamble %
 %%%%%%%%%%%%
+
 % Making tables in LaTeX can be done without any extra packages
 % However, booktabs makes tables simple and pretty
 \usepackage{booktabs}
@@ -316,6 +318,7 @@ I agree with them, so I use it.
 %%%%%%%%%%%%%
 % Body text %
 %%%%%%%%%%%%%
+
 % This is a simple example table; feel free to modify it to your needs.
 % By default, this table is put in a floating figure.
 % (For more info on figures, see the `image' snippet)
@@ -355,7 +358,6 @@ pdfpages lets you include (parts of) a PDF file in your document.
 %%%%%%%%%%%%%
 % Body text %
 %%%%%%%%%%%%%
-
 
 % The file will be automatically be given its own page, no need to do a \pagebreak before or after
 \begin{figure}[h]
@@ -417,11 +419,16 @@ Bonus: it works perfectly with VimTeX, which will ignore any commented blocks wh
 ```latex
 % Enables comment blocks
 \usepackage{comment}
+
+\begin{comment}
+This is all commented out.
+And so is this!
+\end{comment}
 ```
 
 ## 5. LaTeX tips & tricks
 
-### a properly formatted table of contents
+### A properly formatted table of contents
 
 If you simply plop down your table of contents, you might have a number of problems:
 
@@ -440,7 +447,7 @@ Let's solve all these problems at once:
 }
 ```
 
-### abstract and keywords
+### Abstract and keywords
 
 LaTeX has a separate environment for abstracts, creatively named `abstract`.
 Keywords can be formatted manually.
@@ -453,7 +460,7 @@ Keywords can be formatted manually.
 \textit{\textbf{\small Keywords --- }\small first, second, third, etc.}
 ```
 
-### subtitles
+### Subtitles
 
 Make a subtitle by making the title bold and adding a line break.
 
@@ -461,7 +468,7 @@ Make a subtitle by making the title bold and adding a line break.
 \title{\textbf{Title}\\Subtitle}
 ```
 
-### subheaders and table of contents
+### Subheaders and table of contents
 
 If you want to use the above trick with section headers, you run into the problem of having line breaks in your table of contents (since the table of contents literally copies the entire header).
 The solution is to provide a separate ToC header in square brackets.
