@@ -20,7 +20,7 @@ You can get acquainted with LaTeX through [Overleaf's 30-minute introduction](ht
 
 4. A collection of [useful LaTeX packages](#4-latex-packages)
 
-5. Some [LaTeX tips & tricks](#5-latex-tips-tricks)
+5. Some [LaTeX tips & tricks](#5latex-tips-tricks)
 
 ## Attachments
 
