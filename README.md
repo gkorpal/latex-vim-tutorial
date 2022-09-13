@@ -217,7 +217,7 @@ Pretty simple!
 This is really just a commonsense setting to bring LaTeX font encoding into the 21st century.
 You can read more about it [here](https://tex.stackexchange.com/questions/664/why-should-i-use-usepackaget1fontenc).
 
-### babel
+### babel (internationalisation)
 
 If you're not writing in American English, Babel takes care of pretty much all language-related settings for you.
 You can give it the language directly by invoking `\usepackage[dutch]{babel}`, but I prefer doing it as follows:
@@ -231,7 +231,7 @@ You can give it the language directly by invoking `\usepackage[dutch]{babel}`, b
 
 This way, any other packages that take a language as an argument also know that your document is in Dutch.
 
-### biblatex-chicago
+### biblatex-chicago (references and bibliography)
 
 BibLaTeX manages your references and bibliographies.
 This particular flavour does so in the [Chicago](https://www.chicagomanualofstyle.org/tools_citationguide.html) style, a popular style in the humanities and social sciences.
@@ -267,7 +267,7 @@ Here, I tell it to use the author-date style, to use Biber as its back-end, and 
 Then, I point the package to my `.bib` file, which can be produced with a reference manager like [Zotero](https://www.zotero.org/).
 And lastly, I enable csquotes, which is recommended by BibLaTeX.
 
-### hyperref
+### hyperref (hyperlinks)
 
 Hyperref enables hyperlinks in your documents.
 
@@ -300,7 +300,7 @@ In particular, Cleveref 'knows' what kind of thing you're referring to (a figure
 \usepackage{cleveref}
 ```
 
-### booktabs
+### booktabs (tables)
 
 Booktabs makes it easy to create pretty and clear tables.
 Specifically, the package follows [a set of rules](https://ftp.snt.utwente.nl/pub/software/tex/macros/latex/contrib/booktabs/booktabs.pdf) for making what they consider 'good tables'.
@@ -344,7 +344,7 @@ I agree with them, so I use it.
 \endgroup
 ```
 
-### pdfpages
+### pdfpages (external PDF's)
 
 pdfpages lets you include (parts of) a PDF file in your document.
 
@@ -390,7 +390,7 @@ If you don't, look for other fonts [here](https://tug.org/FontCatalogue/seriffon
 \usepackage{tgtermes}
 ```
 
-### geometry
+### geometry (paper size)
 
 Set the dimensions of your paper.
 I personally don't know what 'letter paper' even is, so I set mine to A4.
@@ -400,7 +400,7 @@ I personally don't know what 'letter paper' even is, so I set mine to A4.
 \usepackage[a4paper]{geometry}
 ```
 
-### setspace
+### setspace (spacing)
 
 We all know that double spacing looks terrible, but sometimes an assignment requires you to use it.
 Setspace has you covered.
@@ -476,4 +476,43 @@ For example:
 
 ```latex
 \section[Instrumental reason: Horkheimer's \textit{Eclipse of Reason}]{Instrumental reason\\ {\large Horkheimer's \textit{Eclipse of Reason}}}
+```
+
+### Appendix
+
+When adding an appendix, a few things are important:
+
+1. Starting on a new page;
+2. Resetting page numbering;
+3. A different page numbering style;
+4. Resetting section numbering;
+5. A different section numbering style:
+6. A separate bibliography (optionally with a smaller header);
+7. A proper place in the table of contents.
+
+Fortunately, the macro `/appendix` takes care of all of these except 3 and 6.
+
+The page numbering style can be changed with the `\pagenumbering` command, and the separate bibliography can be arranged with the `refsection` environment.
+
+This is what it looks like:
+
+```latex
+% This adds an appendix to the document which is separate from the rest of the document, with a separate bibliography.
+
+% Enables separate numbering for the appendix
+% Options: arabic, roman, Roman, alph, Alph
+\pagenumbering{roman}
+
+% Creates a separate section of references for the appendix bibliography
+\begin{refsection}
+
+\appendix
+
+% Write your body text here as you normally would, including chapters, sections, subsections, etc.
+\section{First appendix}
+
+% Prints the appendix bibliography with a smaller heading
+\printbibliography[heading=subbibliography]
+
+\end{refsection}
 ```
