@@ -487,12 +487,13 @@ When adding an appendix, a few things are important:
 3. A different page numbering style;
 4. Resetting section numbering;
 5. A different section numbering style:
-6. A separate bibliography (optionally with a smaller header);
+6. A separate bibliography with a custom title and a smaller header;
 7. A proper place in the table of contents.
 
 Fortunately, the macro `/appendix` takes care of all of these except 3 and 6.
 
 The page numbering style can be changed with the `\pagenumbering` command, and the separate bibliography can be arranged with the `refsection` environment.
+The custom title and header can be defined after the `\printbibliography` command.
 
 This is what it looks like:
 
@@ -511,8 +512,63 @@ This is what it looks like:
 % Write your body text here as you normally would, including chapters, sections, subsections, etc.
 \section{First appendix}
 
-% Prints the appendix bibliography with a smaller heading
-\printbibliography[heading=subbibliography]
+% Prints the appendix bibliography with a smaller heading and custom title
+\printbibliography[heading=subbibliography,title=Bibliography Appendix A]
 
 \end{refsection}
+```
+
+### Every section on new page
+
+Putting every section on its own page automatically requires defining a new command:
+
+```latex
+% Start a new page before every section
+\let\stdsection\section
+\renewcommand\section{\clearpage\stdsection}
+```
+
+### Two columns
+
+Switching to two columns is as easy as typing `\twocolumn`.
+However, in a document which consists fully or mostly of two columns, you should add the option `twocolumn` to the `\documentclass` command. (see [this thread](https://tex.stackexchange.com/questions/332120/what-is-the-difference-between-twocolumn-and-documentclasstwocolumnbook) for some reasons).
+
+Apart from that, I slightly tweak the default margins based on my own preferences.
+
+```latex
+%%%%%%%%%%%%
+% Preamble %
+%%%%%%%%%%%%
+
+\documentclass[twocolumn]{article}
+
+%%% Margins %%%
+% The default column separation is too small for my taste, so I slightly increase it here
+% Comment the three commands below to revert the margins to their LaTeX defaults
+% If you're curious about what these commands do to the layout exactly, add \addpackage{layout} to the preamble, and \layout to the main text to see a visual representation
+
+% Increase the column separation by 10pt
+\addtolength{\columnsep}{10pt}
+% Compensate by pushing the whole text 5pt left
+\addtolength{\hoffset}{-5pt}
+% Compensate by adding 10pt to the total text width, effectively pushing both columns 5pt outward
+\addtolength{\textwidth}{10pt}
+```
+
+Switch to one-column mode with `\onecolumn`, and back with `\twocolumn`.
+
+### Full-width figure in two-column mode
+If you insert a regular figure while in two-column mode, it will only span a single column.
+For a figure to take up the full two columns, simply add an asterisk, like so:
+
+```latex
+\begin{figure*}[h]
+	\begin{center}
+		% You can specify the size of the image by setting 'width=' or 'height='
+		% The size can be set absolutely (in px, cm, etc.), relatively (with 'scale=1.5') or relative to \textwidth, like done below
+		\includegraphics[width=0.8\textwidth]{image.png}
+		\caption{A very beautiful image.}
+		\label{fig:beautiful}
+	\end{center}
+\end{figure*}
 ```
