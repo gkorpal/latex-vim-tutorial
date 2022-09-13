@@ -5,8 +5,10 @@ I am one of them.
 Here I share what I've learned.
 I do this both in the form of a 'tutorial' (scroll down) and a template + snippets (see above).
 
-→ **NOTE:** if you're completely new to LaTeX, this is probably not the place to start.
+→ **NOTE:** if you're completely new to LaTeX and/or (n)vim, this is probably not the place to start.
+I don't cover absolute the basics of how either program works because so many other people have done it so much better already.
 You can get acquainted with LaTeX through [Overleaf's 30-minute introduction](https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes), and check out [LaTeX-doc-ptr](https://mirrors.evoluso.com/CTAN/info/latex-doc-ptr/latex-doc-ptr.pdf) for a great list of general recommendations.
+To get started with Vim or Neovim, type `vimtutor` into a terminal and come back afterwards.
 
 ![Example of an neovim+LaTeX workflow](https://gitlab.com/teunphil/humanlatex/-/raw/main/example.gif)*What a simple neovim+LaTeX workflow could look like.*
 
