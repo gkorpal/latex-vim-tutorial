@@ -16,21 +16,21 @@ To get started with Vim or Neovim, type `vimtutor` into a terminal and come back
 
 ## Contents
 
-1. [Reasons for using LaTeX](reasons-for-using-latex)
+1. [Reasons for using LaTeX](#reasons-for-using-latex)
 
-2. [Reasons for using (n)vim](reasons-for-using-nvim)
+2. [Reasons for using (n)vim](#reasons-for-using-nvim)
 
-3. A simple [(n)vim config](nvim-config)
+3. A simple [(n)vim config](#nvim-config)
 
-4. A small collection of [useful (n)vim plugins](nvim-plugins)
+4. A small collection of [useful (n)vim plugins](#nvim-plugins)
 
-5. Some [(n)vim tips & tricks](nvim-tips-tricks)
+5. Some [(n)vim tips & tricks](#nvim-tips-tricks)
 
-6. A collection of [useful LaTeX packages](latex-packages)
+6. A collection of [useful LaTeX packages](#latex-packages)
 
-7. Some [LaTeX tips & tricks](latex-tips-tricks)
+7. Some [LaTeX tips & tricks](#latex-tips-tricks)
 
-8. [Further resources](further-resources)
+8. [Further resources](#further-resources)
 
 ## Attachments
 
