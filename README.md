@@ -12,27 +12,31 @@ To get started with Vim or Neovim, type `vimtutor` into a terminal and come back
 
 ![Example of an neovim+LaTeX workflow](https://gitlab.com/teunphil/humanlatex/-/raw/main/example.gif)*What a simple neovim+LaTeX workflow could look like.*
 
+---
+
 ## Contents
 
-1. Reasons for using LaTeX
+1. [Reasons for using LaTeX](reasons-for-using-latex)
 
-2. Reasons for using (n)vim
+2. [Reasons for using (n)vim](reasons-for-using-nvim)
 
-1. A simple [(n)vim config](#1-nvim-config)
+1. A simple [(n)vim config](nvim-config)
 
-2. A small collection of [useful (n)vim plugins](#2-nvim-plugins)
+2. A small collection of [useful (n)vim plugins](nvim-plugins)
 
-3. Some [(n)vim tips & tricks](#3-nvim-tips-tricks)
+3. Some [(n)vim tips & tricks](nvim-tips-tricks)
 
-4. A collection of [useful LaTeX packages](#4-latex-packages)
+4. A collection of [useful LaTeX packages](latex-packages)
 
-5. Some [LaTeX tips & tricks](#5latex-tips-tricks)
+5. Some [LaTeX tips & tricks](latex-tips-tricks)
 
 ## Attachments
 
 - A basic LaTeX template called [sophia.tex](sophia.tex)
 
 - [Snippets](snippets) for specific purposes
+
+---
 
 ## Reasons for using LaTeX
 
@@ -121,7 +125,7 @@ For example, you can define your own keybindings for common tasks, or thoroughly
 It can also be extended with endless plugins.
 For LaTeX writing, [I recommend a few below](#2-nvim-plugins)!
 
-## 1. (n)vim config
+## (n)vim config
 
 Both Vim and Neovim require little extra config for comfy LaTeX editing, so the settings here are quite vanilla.
 I share all my settings in Vimscript, because I use one config file for both editors.
@@ -157,7 +161,7 @@ syntax on			" enable syntax highlighting
 
 ```
 
-## 2. (n)vim plugins
+## (n)vim plugins
 
 ### [vim-plug](https://github.com/junegunn/vim-plug)
 You can manage your plugins [manually](https://gist.github.com/manasthakur/ab4cf8d32a28ea38271ac0d07373bb53#managing-plugins-natively-using-vim-8-packages), but for me, there's little reason not to use vim-plug.
@@ -254,7 +258,7 @@ The only config required is:
 lua require('autolist').setup({})
 ```
 
-## 3. (n)vim tips & tricks
+## (n)vim tips & tricks
 
 ### Spellcheck
 
@@ -299,7 +303,7 @@ To understand how this crazy-looking mapping works, do check out his video.
 But basically, the string after `nnoremap` is what you type in normal mode to trigger the snippet, the string after `:-1read` is the path to the file you want to throw in your document, and the stuff after `<CR>` are the keystrokes you want to be pressed after the snippet is pasted.
 Pretty simple!
 
-## 4. LaTeX packages
+## LaTeX packages
 
 ### fontenc
 
@@ -522,7 +526,7 @@ And so is this!
 \end{comment}
 ```
 
-## 5. LaTeX tips & tricks
+## LaTeX tips & tricks
 
 ### A properly formatted table of contents
 
