@@ -20,15 +20,17 @@ To get started with Vim or Neovim, type `vimtutor` into a terminal and come back
 
 2. [Reasons for using (n)vim](reasons-for-using-nvim)
 
-1. A simple [(n)vim config](nvim-config)
+3. A simple [(n)vim config](nvim-config)
 
-2. A small collection of [useful (n)vim plugins](nvim-plugins)
+4. A small collection of [useful (n)vim plugins](nvim-plugins)
 
-3. Some [(n)vim tips & tricks](nvim-tips-tricks)
+5. Some [(n)vim tips & tricks](nvim-tips-tricks)
 
-4. A collection of [useful LaTeX packages](latex-packages)
+6. A collection of [useful LaTeX packages](latex-packages)
 
-5. Some [LaTeX tips & tricks](latex-tips-tricks)
+7. Some [LaTeX tips & tricks](latex-tips-tricks)
+
+8. [Further resources](further-resources)
 
 ## Attachments
 
@@ -77,6 +79,11 @@ In contrast, referencing to sources in LaTeX is buttery smooth.
 You tell it to use a certain style and all formatting happens automatically, including in the bibliography.
 The bibliography is automatically populated with all referenced sources.
 
+**Version control.**
+
+
+For another excellent take on LaTeX in the humanities, read [Lars Christian Jensen's blog post](https://www.overleaf.com/blog/636-guest-blog-post-latex-for-the-humanities).
+
 ## Reasons for using (n)vim
 
 Vim (or Neovim) is not the most straightforward text editor to work with.
@@ -100,7 +107,7 @@ The same goes for moving around.
 `}` takes you to the next empty line.
 `3w` jumps you three words ahead.
 
-This can be with LaTeX-specific bindings such as `]]` for jumping to the next section, or `cse` to change the surrounding environment (see the [VimTeX](#vimtex) section).
+This can be extended with LaTeX-specific bindings such as `]]` for jumping to the next section, or `cse` to change the surrounding environment (see the [VimTeX](#vimtex) section).
 
 Because the keyboard is so powerful in normal mode, you don't have to rely on your mouse for moving and editing.
 This is, for many people, a very pleasant experience once they learn the basics of normal mode.
@@ -666,3 +673,17 @@ For a figure to take up the full two columns, simply add an asterisk, like so:
 	\end{center}
 \end{figure*}
 ```
+
+## Further resources
+
+### LaTeX
+- [Blog post: LaTeX for the humanities](https://www.overleaf.com/blog/636-guest-blog-post-latex-for-the-humanities) – Excellent writeup on why to use LaTeX in the humanities.
+- [LaTeX for Philosophers](https://tanksley.me/latex-for-philosophers/index) – *Very* thorough LaTeX tutorial geared towards philosophy and the humanities in general. (I still need to go through this one.)
+- [Getting to Grips with LaTeX](https://www.andy-roberts.net/writing/latex) – 12-step LaTeX walkthrough that starts at the very beginning. Great for those who are new to LaTeX!
+
+### Vim
+- [Vim user manual](https://www.vi-improved.org/vimusermanual.pdf) – The official user-oriented Vim guide. Surprisingly readable and surprisingly useful!
+- [Idiomatic vimrc](https://github.com/romainl/idiomatic-vimrc) – A very sensible guide to setting up your own vim config.
+- [/u/kaisunc's Vim cheatsheet](https://old.reddit.com/r/vim/comments/n6qfu2/update_my_vim_cheatsheet_static_printable/) – A lovely visual Vim cheatsheet which covers most basic commands.
+- [rtorr's Vim cheatsheet](https://vim.rtorr.com/) – A much more comprehensive cheatsheet.
+- [Openvim](https://openvim.com/) – An interactive Vim tutorial that covers the basics, much like vimtutor.
