@@ -3,7 +3,7 @@
 This is for all those LaTeX users in the humanities and social sciences just trying to figure stuff out.
 I am one of them.
 Here I share what I've learned.
-I do this both in the form of a 'tutorial' (scroll down) and a template + snippets (see above).
+I do this both in the form of general recommendations (scroll down) and a template + snippets (see above).
 
 → **NOTE:** if you're completely new to LaTeX and/or (n)vim, this is probably not the place to start.
 I don't cover absolute the basics of how either program works because so many other people have done it so much better already.
@@ -13,6 +13,10 @@ To get started with Vim or Neovim, type `vimtutor` into a terminal and come back
 ![Example of an neovim+LaTeX workflow](https://gitlab.com/teunphil/humanlatex/-/raw/main/example.gif)*What a simple neovim+LaTeX workflow could look like.*
 
 ## Contents
+
+1. Reasons for using LaTeX
+
+2. Reasons for using (n)vim
 
 1. A simple [(n)vim config](#1-nvim-config)
 
@@ -30,13 +34,99 @@ To get started with Vim or Neovim, type `vimtutor` into a terminal and come back
 
 - [Snippets](snippets) for specific purposes
 
+## Reasons for using LaTeX
+
+LaTeX is different from your average word processor such as Word or Writer.
+We call these [What You See Is What You Get (WYSIWYG)](https://en.wikipedia.org/wiki/WYSIWYG) editors, because, well, they let you visually edit your documents in real-time.
+In contrast, LaTeX is a *language* in which you can specify the content and form of your document.
+This has a few advantages:
+
+### Precision and consistency
+
+In LaTeX, what happens to your document is only what you tell it to.
+This means that Word annoyances such as random typographic changes or a vague blue background behind pasted text are unthinkable.
+LaTeX feels very robust, because you first specify what you want your document to look like (in the 'preamble'), and then you type out your document which will be formatted in that exact way.
+This is what people mean when they say that LaTeX 'separates form and content'.
+I'm personally a big fan, because while I'm writing I don't care where exactly the line breaks or how the figure ends up on the page or how that footnote looks.
+I trust that these things will sort themselves out (as they almost always do), and I can focus on writing instead.
+
+In Word or Writer, formatting information is often 'hidden': "why is this paragraph all underlined in red?
+Ah, it's because the program thinks it's in a different language for some reason."
+In LaTeX, every local change is declared explicitly.
+So instead of applying a hidden option to a certain chunk of text, you write it out:
+
+```latex
+As descartes said: ``\foreignlanguage{latin}{cogito, ergo sum}''.
+```
+
+The same goes for bold and italics, font size, spacing, colour, links, capitalisation, footnotes, all the way up to tables and bibliographies: everything is explicitly declared.
+This makes unpleasant surprises almost impossible.
+
+### Ａ Ｅ Ｓ Ｔ Ｈ Ｅ Ｔ Ｉ Ｃ Ｓ
+
+If you make a new document in Word or Writer, use all the defaults and write a few sentences with a header, the result is… not dashing.
+If you make a new LaTeX document and add the bare minimum, the result looks awesome and professional.
+Beautiful, fully justified text in a classy font and with lovely titles and headers (and no blue!).
+And with some small tweaks you can make it look even better!
+
+### Referencing
+
+In my experience, referencing to sources in Word is okay, but it feels a bit like a hack.
+In contrast, referencing to sources in LaTeX is buttery smooth.
+You tell it to use a certain style and all formatting happens automatically, including in the bibliography.
+The bibliography is automatically populated with all referenced sources.
+
+## Reasons for using (n)vim
+
+Vim (or Neovim) is not the most straightforward text editor to work with.
+If you're used to what-you-see-is-what-you-get word processors like Word or Writer, the switch to Vim+LaTeX will cause double whiplash; one for each part of your new setup.
+So if that's your background, Vim might not be the obvious choice, and you might actually want to opt for a more 'conventional' editor such as [Overleaf](https://www.overleaf.com/) (online LaTeX editor), [TeXstudio](https://www.texstudio.org/) (offline LaTeX editor) or even a more conventional generic text editor such as [Emacs](https://tex.stackexchange.com/questions/339/latex-editors-ides/356#356).
+(See [this Reddit thread](https://old.reddit.com/r/LaTeX/comments/kaqkhq/whats_a_good_latex_editor_for_a_beginner/) and [this Stackexchange thread](https://tex.stackexchange.com/questions/339/latex-editors-ides/) for more inspiration.)
+However, there are reasons for opting for Vim or Neovim, despite their rather steep learning curve.
+
+### Efficiency
+
+Vim is often touted for being extremely efficient once you know how to work with it.
+This is mostly because of its modular nature.
+That is: it has different modes of operation where certain keys mean different things.
+
+You start out in 'normal mode', which is an editing efficiency monster.
+Every key on your keyboard has an editing purpose in normal mode, which allows you to do almost anything you want in a few keystrokes.
+For example, you can delete a line with `dd`.
+Deleting three words? `d3w`.
+Deleting everything until that closing parenthesis? `dr)`
+The same goes for moving around.
+`50gg` brings you to line 50.
+`}` takes you to the next empty line.
+`3w` jumps you three words ahead.
+
+This can be [extended](#vimtex) with LaTeX-specific bindings such as `]]` for jumping to the next section, or `cse` to change the surrounding environment.
+
+Because the keyboard is so powerful in normal mode, you don't have to rely on your mouse for moving and editing.
+This is, for many people, a very pleasant experience once they learn the basics of normal mode.
+
+It is also these different modes that can make Vim [so insanely complicated](https://rawgit.com/darcyparker/1886716/raw/eab57dfe784f016085251771d65a75a471ca22d4/vimModeStateDiagram.svg).
+But if you take it slow and learn only what is most relevant to you, they can be crazy powerful.
+
+### Lightness and speed
+
+(n)vim is incredibly light and fast by default.
+Even when loaded with plugins, it never has any noticeable input delay for me, which is great for these flowy moments where you just want to type.
+
+### Customisability and extendability
+
+(n)vim can be customised to be exactly the way you like.
+For example, you can define your own keybindings for common tasks, or thoroughly change Vim's looks and behaviour.
+
+It can also be extended with endless plugins.
+For LaTeX writing, [I recommend a few below](#2-nvim-plugins)!
+
 ## 1. (n)vim config
 
-I configure both vim and neovim in vimscript, because I share a single config file between the two editors.
-Both editors require little extra config for comfy LaTeX editing, so the settings here are quite vanilla.
+Both Vim and Neovim require little extra config for comfy LaTeX editing, so the settings here are quite vanilla.
+I share all my settings in Vimscript, because I use one config file for both editors.
 
 The following options are relevant to both vim and neovim:
-(I apologise on behalf of Gitlab's vim syntax highlighting.)
 
 ```vim
 set number			" show number line
@@ -50,10 +140,12 @@ autocmd VimEnter * set cul	" add cursorline when not in insert mode
 autocmd InsertLeave * set cul
 autocmd InsertEnter * set nocul
 ```
+*(with apoligies on behalf of Gitlab's vimscript syntax highlighting)*
 
 The following options are relevant only to vim (since neovim already sets these by default):
 
 ```vim
+set nocompatible		" no vi compatibility
 set autoindent			" enable auto-indentation
 set hlsearch			" enable search result highlighting
 set backspace=indent,eol,start	" allow backspacing over everything in insert mode.
@@ -115,7 +207,7 @@ Now to some of its best features.
 Perhaps the most convenient feature is auto-compilation.
 To enable it, simply open a LaTeX document and hit `\ll`.
 
-→ *Sidenote:* `\` is the default 'leader key' on (n)vim, which is meant to prevent custom keybindings from plugins or users to interfere with existing keybindings.
+→ *Sidenote:* `\` is the default 'leader key' on (n)vim, which is meant to prevent custom keybindings from interfering with existing ones.
 This is why a lot of plugins have keybindings that start with `\`.
 
 #### Forward search
@@ -129,12 +221,14 @@ Hit `\lt` to toggle a table of contents.
 
 `zA`	toggle current fold + all underlying folds
 
-`zR`	open all folds (Reduce)
+`zR`	open all folds ('**R**educe')
 
-`zM`	close all folds	(More)
+`zM`	close all folds	('**M**ore')
 
 #### Moving between sections
 Use `]]` and `[[` to quickly jump between sections.
+
+Check the [VimTeX Github](https://github.com/lervag/vimtex#features) for a more complete list of features!
 
 ### [Limelight](https://github.com/junegunn/limelight.vim) and [Goyo](https://github.com/junegunn/goyo.vim)
 These two plugins combined add a pleasant distraction-free writing mode.
@@ -150,14 +244,14 @@ noremap <leader>gg :Goyo<CR>|	 " hotkey for Goyo toggle
 This way, `\gg` toggles Goyo and Limelight together.
 
 ### [Autolist](https://github.com/gaoDean/autolist.nvim)
-→ **NOTE:** This is the only plugin here that requires neovim!
+→ **NOTE:** This is the only plugin here that requires Neovim!
 
 Automatically continues lists, so you don't have to type `\item` over and over and over.
 
 The only config required is:
 
 ```vim
-:lua require('autolist').setup({})
+lua require('autolist').setup({})
 ```
 
 ## 3. (n)vim tips & tricks
