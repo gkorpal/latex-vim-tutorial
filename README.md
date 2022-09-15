@@ -45,8 +45,7 @@ We call these [What You See Is What You Get (WYSIWYG)](https://en.wikipedia.org/
 In contrast, LaTeX is a *language* in which you can specify the content and form of your document.
 This has a few advantages:
 
-### Precision and consistency
-
+**Precision and consistency.**
 In LaTeX, what happens to your document is only what you tell it to.
 This means that Word annoyances such as random typographic changes or a vague blue background behind pasted text are unthinkable.
 LaTeX feels very robust, because you first specify what you want your document to look like (in the 'preamble'), and then you type out your document which will be formatted in that exact way.
@@ -60,21 +59,19 @@ In LaTeX, every local change is declared explicitly.
 So instead of applying a hidden option to a certain chunk of text, you write it out:
 
 ```latex
-As descartes said: ``\foreignlanguage{latin}{cogito, ergo sum}''.
+As Descartes said: ``\foreignlanguage{latin}{cogito, ergo sum}''.
 ```
 
 The same goes for bold and italics, font size, spacing, colour, links, capitalisation, footnotes, all the way up to tables and bibliographies: everything is explicitly declared.
 This makes unpleasant surprises almost impossible.
 
-### Ａ Ｅ Ｓ Ｔ Ｈ Ｅ Ｔ Ｉ Ｃ Ｓ
-
+**Ａ Ｅ Ｓ Ｔ Ｈ Ｅ Ｔ Ｉ Ｃ Ｓ.**
 If you make a new document in Word or Writer, use all the defaults and write a few sentences with a header, the result is… not dashing.
 If you make a new LaTeX document and add the bare minimum, the result looks awesome and professional.
 Beautiful, fully justified text in a classy font and with lovely titles and headers (and no blue!).
 And with some small tweaks you can make it look even better!
 
-### Referencing
-
+**Referencing.**
 In my experience, referencing to sources in Word is okay, but it feels a bit like a hack.
 In contrast, referencing to sources in LaTeX is buttery smooth.
 You tell it to use a certain style and all formatting happens automatically, including in the bibliography.
@@ -88,8 +85,7 @@ So if that's your background, Vim might not be the obvious choice, and you might
 (See [this Reddit thread](https://old.reddit.com/r/LaTeX/comments/kaqkhq/whats_a_good_latex_editor_for_a_beginner/) and [this Stackexchange thread](https://tex.stackexchange.com/questions/339/latex-editors-ides/) for more inspiration.)
 However, there are reasons for opting for Vim or Neovim, despite their rather steep learning curve.
 
-### Efficiency
-
+**Efficiency.**
 Vim is often touted for being extremely efficient once you know how to work with it.
 This is mostly because of its modular nature.
 That is: it has different modes of operation where certain keys mean different things.
@@ -104,7 +100,7 @@ The same goes for moving around.
 `}` takes you to the next empty line.
 `3w` jumps you three words ahead.
 
-This can be [extended](#vimtex) with LaTeX-specific bindings such as `]]` for jumping to the next section, or `cse` to change the surrounding environment.
+This can be with LaTeX-specific bindings such as `]]` for jumping to the next section, or `cse` to change the surrounding environment (see the [VimTeX](#vimtex) section).
 
 Because the keyboard is so powerful in normal mode, you don't have to rely on your mouse for moving and editing.
 This is, for many people, a very pleasant experience once they learn the basics of normal mode.
@@ -112,13 +108,11 @@ This is, for many people, a very pleasant experience once they learn the basics 
 It is also these different modes that can make Vim [so insanely complicated](https://rawgit.com/darcyparker/1886716/raw/eab57dfe784f016085251771d65a75a471ca22d4/vimModeStateDiagram.svg).
 But if you take it slow and learn only what is most relevant to you, they can be crazy powerful.
 
-### Lightness and speed
-
+**Lightness and speed.**
 (n)vim is incredibly light and fast by default.
 Even when loaded with plugins, it never has any noticeable input delay for me, which is great for these flowy moments where you just want to type.
 
-### Customisability and extendability
-
+**Customisability and extendability.**
 (n)vim can be customised to be exactly the way you like.
 For example, you can define your own keybindings for common tasks, or thoroughly change Vim's looks and behaviour.
 
