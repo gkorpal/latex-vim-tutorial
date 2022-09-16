@@ -5,11 +5,6 @@ I am one of them.
 Here I share what I've learned.
 I do this both in the form of general recommendations (scroll down) and a template + snippets (see above).
 
-→ **NOTE:** if you're completely new to LaTeX and/or (n)vim, this is probably not the place to start.
-I don't cover absolute the basics of how either program works because so many other people have done it so much better already.
-You can get acquainted with LaTeX through [Overleaf's 30-minute introduction](https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes), and check out [LaTeX-doc-ptr](https://mirrors.evoluso.com/CTAN/info/latex-doc-ptr/latex-doc-ptr.pdf) for a great list of general recommendations.
-To get started with Vim or Neovim, type `vimtutor` into a terminal and come back afterwards.
-
 ![Example of an neovim+LaTeX workflow](https://gitlab.com/teunphil/humanlatex/-/raw/main/example.gif)*What a simple neovim+LaTeX workflow could look like.*
 
 ---
@@ -20,15 +15,15 @@ To get started with Vim or Neovim, type `vimtutor` into a terminal and come back
 
 2. [Reasons for using (n)vim](#reasons-for-using-nvim)
 
-3. A simple [(n)vim config](#nvim-config)
+3. [A simple (n)vim config](#a-simple-nvim-config)
 
-4. A small collection of [useful (n)vim plugins](#nvim-plugins)
+4. [Useful (n)vim plugins](#useful-nvim-plugins)
 
-5. Some [(n)vim tips & tricks](#nvim-tips-tricks)
+5. [(n)vim tips & tricks](#nvim-tips-tricks)
 
-6. A collection of [useful LaTeX packages](#latex-packages)
+6. [Useful LaTeX packages](#useful-latex-packages)
 
-7. Some [LaTeX tips & tricks](#latex-tips-tricks)
+7. [LaTeX tips & tricks](#latex-tips-tricks)
 
 8. [Further resources](#further-resources)
 
@@ -51,7 +46,7 @@ This has a few advantages:
 In LaTeX, what happens to your document is only what you tell it to.
 This means that Word annoyances such as random typographic changes or a vague blue background behind pasted text are unthinkable.
 LaTeX feels very robust, because you first specify what you want your document to look like (in the 'preamble'), and then you type out your document which will be formatted in that exact way.
-This is what people mean when they say that LaTeX 'separates form and content'.
+This is what people mean when they say that LaTeX "separates form and content".
 I'm personally a big fan, because while I'm writing I don't care where exactly the line breaks or how the figure ends up on the page or how that footnote looks.
 I trust that these things will sort themselves out (as they almost always do), and I can focus on writing instead.
 
@@ -80,9 +75,16 @@ You tell it to use a certain style and all formatting happens automatically, inc
 The bibliography is automatically populated with all referenced sources.
 
 **Version control.**
+`thesis.docx` `thesisfinal.docx` `thesisfinalFINAL.docx` `thesisREALLYFINALFORREAL.docx` `final_thesisREALLYFINALFORREAL.docx`
 
+LaTeX allows you to completely avoid the above situation and streamline the version control process.
+This is because LaTeX files are just plaintext files, and plaintext files are manageable using `git`.
+If you've never used Git, it is another one of these Spartan-looking programs that are difficult to get into.
+But the basics are easy to learn, and there are plenty of [beginners' guides](https://towardsdatascience.com/an-easy-beginners-guide-to-git-2d5a99682a4c).
 
-For another excellent take on LaTeX in the humanities, read [Lars Christian Jensen's blog post](https://www.overleaf.com/blog/636-guest-blog-post-latex-for-the-humanities).
+If you use Git consistently, you'll have a snapshot of every previous state of your document which you can revert to if necessary.
+It also allows you to keep track of different 'branches' (for example, for teachers' suggestions) which you can later merge into your main document.
+And finally, Git allows for very smooth collaboration in groups.
 
 ## Reasons for using (n)vim
 
@@ -101,7 +103,7 @@ You start out in 'normal mode', which is an editing efficiency monster.
 Every key on your keyboard has an editing purpose in normal mode, which allows you to do almost anything you want in a few keystrokes.
 For example, you can delete a line with `dd`.
 Deleting three words? `d3w`.
-Deleting everything until that closing parenthesis? `dr)`
+Deleting everything until that closing parenthesis? `df)`
 The same goes for moving around.
 `50gg` brings you to line 50.
 `}` takes you to the next empty line.
@@ -122,11 +124,10 @@ Even when loaded with plugins, it never has any noticeable input delay for me, w
 **Customisability and extendability.**
 (n)vim can be customised to be exactly the way you like.
 For example, you can define your own keybindings for common tasks, or thoroughly change Vim's looks and behaviour.
-
 It can also be extended with endless plugins.
 For LaTeX writing, [I recommend a few below](#2-nvim-plugins)!
 
-## (n)vim config
+## A simple (n)vim config
 
 Both Vim and Neovim require little extra config for comfy LaTeX editing, so the settings here are quite vanilla.
 I share all my settings in Vimscript, because I use one config file for both editors.
@@ -162,7 +163,7 @@ syntax on			" enable syntax highlighting
 
 ```
 
-## (n)vim plugins
+## Useful (n)vim plugins
 
 ### [vim-plug](https://github.com/junegunn/vim-plug)
 You can manage your plugins [manually](https://gist.github.com/manasthakur/ab4cf8d32a28ea38271ac0d07373bb53#managing-plugins-natively-using-vim-8-packages), but for me, there's little reason not to use vim-plug.
@@ -179,7 +180,7 @@ call plug#end()
 
 In between these two lines, you can now start adding your plugins line-by-line.
 You do this by starting a line with `Plug`, and then referring to the author name and plugin name on GitHub.
-For example, if you want to add [Awesome Vim Color Schemes](https://github.com/rafi/awesome-vim-colorschemes), simply add the line
+For example, if you want to add [Awesome Vim Color Schemes](https://github.com/rafi/awesome-vim-colorschemes), simply add this line:
 
 ```vim
 Plug 'rafi/awesome-vim-colorschemes'	" color schemes
@@ -249,7 +250,7 @@ noremap <leader>gg :Goyo<CR>|	 " hotkey for Goyo toggle
 This way, `\gg` toggles Goyo and Limelight together.
 
 ### [Autolist](https://github.com/gaoDean/autolist.nvim)
-→ **NOTE:** This is the only plugin here that requires Neovim!
+→ **NOTE: requires Neovim!**
 
 Automatically continues lists, so you don't have to type `\item` over and over and over.
 
@@ -304,7 +305,7 @@ To understand how this crazy-looking mapping works, do check out his video.
 But basically, the string after `nnoremap` is what you type in normal mode to trigger the snippet, the string after `:-1read` is the path to the file you want to throw in your document, and the stuff after `<CR>` are the keystrokes you want to be pressed after the snippet is pasted.
 Pretty simple!
 
-## LaTeX packages
+## Useful LaTeX packages
 
 ### fontenc
 
@@ -387,7 +388,7 @@ Hyperref enables hyperlinks in your documents.
 ```
 
 The only configuration I do here is some visual tweaks, because the default look of links is… not great.
-The `caption` package only fixes an issue where clicking a link to a figure jumps the pdf to the caption instead of the figure itself.
+The `caption` package simply fixes an issue where clicking a link to a figure jumps the pdf to the caption instead of the figure itself.
 
 ### cleveref
 
@@ -408,19 +409,14 @@ Specifically, the package follows [a set of rules](https://ftp.snt.utwente.nl/pu
 I agree with them, so I use it.
 
 ```latex
-%%%%%%%%%%%%
-% Preamble %
-%%%%%%%%%%%%
-
 % Making tables in LaTeX can be done without any extra packages
 % However, booktabs makes tables simple and pretty
 \usepackage{booktabs}
+```
 
-%%%%%%%%%%%%%
-% Body text %
-%%%%%%%%%%%%%
+You can then make a table like this:
 
-% This is a simple example table; feel free to modify it to your needs.
+```latex
 % By default, this table is put in a floating figure.
 % (For more info on figures, see the `image' snippet)
 % To put this table in-line instead, comment the lines \begin{figure}, \caption, \label and \end{figure}
@@ -450,16 +446,13 @@ I agree with them, so I use it.
 pdfpages lets you include (parts of) a PDF file in your document.
 
 ```latex
-%%%%%%%%%%%%
-% Preamble %
-%%%%%%%%%%%%
-
+% Insert PDF's
 \usepackage{pdfpages}
+```
 
-%%%%%%%%%%%%%
-% Body text %
-%%%%%%%%%%%%%
+Insert a file like this:
 
+```latex
 % The file will be automatically be given its own page, no need to do a \pagebreak before or after
 \begin{figure}[h]
     \centering
@@ -515,7 +508,7 @@ Setspace has you covered.
 ### comment
 
 This is just a convenience package, allowing you to comment out large portions of text with the `comment` environment.
-Bonus: it works perfectly with VimTeX, which will ignore any commented blocks when counting words!
+Bonus: it works perfectly with [VimTeX](#vimtex), which will correctly highlight comment blocks and ignore them when counting words!
 
 ```latex
 % Enables comment blocks
@@ -576,7 +569,7 @@ The solution is to provide a separate ToC header in square brackets.
 For example:
 
 ```latex
-\section[Instrumental reason: Horkheimer's \textit{Eclipse of Reason}]{Instrumental reason\\ {\large Horkheimer's \textit{Eclipse of Reason}}}
+\section[Instrumental reason: Horkheimer's Eclipse of Reason]{Instrumental reason\\ {\large Horkheimer's Eclipse of Reason}}
 ```
 
 ### Appendix
@@ -591,7 +584,7 @@ When adding an appendix, a few things are important:
 6. A separate bibliography with a custom title and a smaller header;
 7. A proper place in the table of contents.
 
-Fortunately, the macro `/appendix` takes care of all of these except 3 and 6.
+Fortunately, the macro `\appendix` takes care of all of these except 3 and 6.
 
 The page numbering style can be changed with the `\pagenumbering` command, and the separate bibliography can be arranged with the `refsection` environment.
 The custom title and header can be defined after the `\printbibliography` command.
@@ -632,7 +625,7 @@ Putting every section on its own page automatically requires defining a new comm
 ### Two columns
 
 Switching to two columns is as easy as typing `\twocolumn`.
-However, in a document which consists fully or mostly of two columns, you should add the option `twocolumn` to the `\documentclass` command. (see [this thread](https://tex.stackexchange.com/questions/332120/what-is-the-difference-between-twocolumn-and-documentclasstwocolumnbook) for some reasons).
+However, in a document which consists fully or mostly of two columns, you should add the option `twocolumn` to the `\documentclass` command (see [this thread](https://tex.stackexchange.com/questions/332120/what-is-the-difference-between-twocolumn-and-documentclasstwocolumnbook) for some reasons).
 
 Apart from that, I slightly tweak the default margins based on my own preferences.
 
@@ -674,16 +667,22 @@ For a figure to take up the full two columns, simply add an asterisk, like so:
 \end{figure*}
 ```
 
+---
+
 ## Further resources
 
 ### LaTeX
+- [Overleaf's 30-minute introduction](https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes) – Concise walkthrough for beginners.
 - [Blog post: LaTeX for the humanities](https://www.overleaf.com/blog/636-guest-blog-post-latex-for-the-humanities) – Excellent writeup on why to use LaTeX in the humanities.
 - [LaTeX for Philosophers](https://tanksley.me/latex-for-philosophers/index) – *Very* thorough LaTeX tutorial geared towards philosophy and the humanities in general. (I still need to go through this one.)
 - [Getting to Grips with LaTeX](https://www.andy-roberts.net/writing/latex) – 12-step LaTeX walkthrough that starts at the very beginning. Great for those who are new to LaTeX!
+- [LaTeX-doc-ptr](https://mirrors.evoluso.com/CTAN/info/latex-doc-ptr/latex-doc-ptr.pdf) – A great list of general LaTeX recommendations.
 
 ### Vim
 - [Vim user manual](https://www.vi-improved.org/vimusermanual.pdf) – The official user-oriented Vim guide. Surprisingly readable and surprisingly useful!
 - [Idiomatic vimrc](https://github.com/romainl/idiomatic-vimrc) – A very sensible guide to setting up your own vim config.
 - [/u/kaisunc's Vim cheatsheet](https://old.reddit.com/r/vim/comments/n6qfu2/update_my_vim_cheatsheet_static_printable/) – A lovely visual Vim cheatsheet which covers most basic commands.
 - [rtorr's Vim cheatsheet](https://vim.rtorr.com/) – A much more comprehensive cheatsheet.
+- `vimtutor` – A built-in interactive getting-started guide to Vim. Type `vimtutor` in a terminal to open.
 - [Openvim](https://openvim.com/) – An interactive Vim tutorial that covers the basics, much like vimtutor.
+- `:h` – Vim's help files are a massive treasure trove of information. Want to know more about syntax highlighting? Type `:h syntax-highlighting` and you're off.
